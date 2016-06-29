@@ -19,9 +19,12 @@ function omf.theme.set -a target_theme
     return $OMF_INVALID_ARG
   end
 
-  # Replace autoload paths of current theme with the target one
-  autoload -e {$OMF_CONFIG,$OMF_PATH}/themes/$current_theme
-  autoload {$OMF_CONFIG,$OMF_PATH}/themes/$target_theme
+  # Remove current theme paths
+  set -l current_theme_paths {$OMF_CONFIG,$OMF_PATH}/theme?/{,functions,completions}/$current_theme
+  autoload -e $current_theme_paths
+
+  # Require new theme
+  require --theme $target_theme
 
   # Find target theme's fish_prompt and link to user function path
   for path in {$OMF_CONFIG,$OMF_PATH}/themes/$target_theme/$prompt_filename

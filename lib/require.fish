@@ -8,29 +8,35 @@ function require
     return 1
   end
 
-  # If bundle should be
+  # If bundle should not be processed
   if set index (contains -i -- --no-bundle $packages)
     set -e packages[$index]
     set ignore_bundle
+  end
+
+  # If requiring a theme we load the root path
+  if set index (contains -i -- --theme $packages)
+    set -e packages[$index]
+    set package_path {$OMF_PATH,$OMF_CONFIG}/theme?/$packages
+    set function_path $package_path
+  else
+    set package_path {$OMF_PATH,$OMF_CONFIG}/pk?/$packages
   end
 
   # Requiring absolute paths
   if set index (contains -i -- --path $packages)
     set -e packages[$index]
     set package_path $packages
-
-  # Requiring specific packages from default paths
-  else
-    set package_path {$OMF_PATH,$OMF_CONFIG}/pkg*/$packages
-
-    # Exit with error if no package paths were generated
-    test -z "$package_path"
-      and return 1
   end
 
-  set function_path $package_path/functions*
-  set complete_path $package_path/completions*
-  set init_path $package_path/init.fish*
+  # Exit with error if no paths were generated
+  test -z "$package_path"
+    and return 1
+
+  # Build package paths
+  set function_path $function_path $package_path/function?
+  set complete_path $package_path/completion?
+  set init_path $package_path/ini?.fish
 
   # Autoload functions
   test -n "$function_path"

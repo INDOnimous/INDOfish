@@ -15,12 +15,14 @@ set -l theme_function_path {$OMF_CONFIG,$OMF_PATH}/themes*/$theme{,/functions}
 # Autoload core library
 set fish_function_path $fish_function_path[1] \
                        $core_function_path \
-                       $theme_function_path \
                        $fish_function_path[2..-1]
 # Require all packages
 emit perf:timer:start "Oh My Fish init installed packages"
 require --path {$OMF_PATH,$OMF_CONFIG}/pkg/*
 emit perf:timer:finish "Oh My Fish init installed packages"
+emit perf:timer:start "Oh My Fish init selected theme"
+require --theme $theme
+emit perf:timer:finish "Oh My Fish init selected theme"
 # Backup key bindings
 functions -q fish_user_key_bindings
   and functions -c fish_user_key_bindings __original_fish_user_key_bindings
