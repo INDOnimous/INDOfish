@@ -11,8 +11,6 @@ function omf.theme.set -a target_theme
   set -l prompt_filename "fish_prompt.fish"
   set -l user_functions_path (omf.xdg.config_home)/fish/functions
 
-  mkdir -p "$user_functions_path"
-
   if not omf.check.fish_prompt
     echo (omf::err)"Conflicting prompt setting."(omf::off)
     echo "Run "(omf::em)"omf doctor"(omf::off)" and fix issues before continuing."
@@ -26,12 +24,8 @@ function omf.theme.set -a target_theme
   # Require new theme
   require --theme $target_theme
 
-  # Find target theme's fish_prompt and link to user function path
-  for path in {$OMF_CONFIG,$OMF_PATH}/themes/$target_theme/$prompt_filename
-    if test -e $path
-      ln -sf $path $user_functions_path/$prompt_filename; and break
-    end
-  end
+  # Make sure prompts are reloaded
+  functions -e fish_prompt fish_right_prompt
 
   # If key bindings file found, reload fish key bindings
   test (count {$OMF_CONFIG,$OMF_PATH}/key_binding?.fish) -gt 0
