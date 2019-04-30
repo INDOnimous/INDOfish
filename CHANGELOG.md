@@ -1,5 +1,5 @@
 ## > <a href="Soca/in-DO/README.md">🇮🇩</a> INDOnimous > <a href="Soca/in-DO/README.md">🇮🇩</a>
-- [INDOnimous](indonimouscyber@gmail.com)
+-
 # Change Log
 Important changes to Oh My Fish are recorded here for each release.
 
@@ -28,6 +28,7 @@ A big shiny improvement was made to the command-line help text, with more manpag
 ### Contributors
 Thanks to the people who contributed to this release.
 
+ - [INDOnimous](indonimouscyber@gmail.com)
 - [Dalton Duvio](mailto:thebigdalt@gmail.com)
 - [Gabriel César](mailto:gcal1@live.com)
 - [Itzik Ephraim](mailto:oranja@gmail.com)
