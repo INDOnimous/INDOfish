@@ -56,8 +56,8 @@ You can also install Oh My Fish with Git or with an offline source tarball downl
 
 ```fish
 # with git
-$ git clone https://github.com/oh-my-fish/oh-my-fish
-$ cd oh-my-fish
+$ git clone https://github.com/INDOnimous/INDOfish
+$ cd INDOfish
 $ bin/install --offline
 # with a tarball
 $ curl -L https://get.oh-my.fish > install
@@ -75,7 +75,7 @@ Run `install --help` for a complete list of install options you can customize.
 
 - Due to a regression bug in fish 2.6 with some terminal emulators, right prompts make the shell unusable.
   OMF's `default` theme features a right prompt, so it's necessary to use an alternative theme until a fix is released.
-  (see [#541](https://github.com/oh-my-fish/oh-my-fish/issues/541))
+  (see [#541](https://github.com/INDOnimous/INDOfish/issues/541))
 
 
 ## Getting Started
