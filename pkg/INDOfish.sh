@@ -342,7 +342,7 @@ if [ $in = 34 ]
 then
 apt-get upgrade 
 apt-get update y
-git clone https://github.com/oh-my-fish/theme-kawasaki
+git clone https://github.com/hastinbe/theme-kawasaki
 echo $O '⟩⟩>›'$BR 
 echo $R '⟩⟩⟩>' $T
 $ne
