@@ -19,7 +19,7 @@ Oh My Fish provides core infrastructure to allow you to install packages which e
 
 > <a href="Soca/in-DO/README.md">🇮🇩</a>INDOnimous Homeland Scurity > <a href="Soca/in-DO/README.md">🇮🇩</a>
 <br>
-! [alt text] (https://github.com/INDOnimous/INDOfish/blob/master/bin/indofish.png)
+! [alt text] (http://github.com/INDOnimous/INDOfish/blob/master/bin/indofish.png)
 
 ## Table of contents
 * [Installation](#installation)
